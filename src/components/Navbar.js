@@ -1,8 +1,8 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import appLogo from '../images/planet.png';
 
-export default function Navbar() {
+export default function Header() {
   return (
     <>
       <nav className="header">
@@ -11,11 +11,31 @@ export default function Navbar() {
           <h1>Space Travellers&apos; Hub</h1>
         </div>
         <ul className="nav--all">
-          <li><NavLink className="nav--item" exact to="/">Rockets </NavLink></li>
-          <li><NavLink className="nav--item" to="/missions">Missions </NavLink></li>
-          <li><NavLink className="nav--item" to="/profile">Profile </NavLink></li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'underline' : 'nav--item')}
+              to="/"
+            >
+              Rockets
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'underline' : 'nav--item')}
+              to="/missions"
+            >
+              Missions
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'underline' : 'nav--item')}
+              to="/profile"
+            >
+              Profile
+            </NavLink>
+          </li>
         </ul>
-        <Outlet />
       </nav>
       <hr />
     </>
