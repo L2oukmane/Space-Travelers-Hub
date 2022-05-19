@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Mission = () => (
-  <div>Mission</div>
-);
-
-export default Mission;
+export default function MissionsList() {
+  return (
+    <div>Mission</div>
+  );
+}

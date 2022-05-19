@@ -1,28 +1,23 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import styles from './styles/Navbar.module.css';
-import logo from '../images/planet.png';
+import { NavLink, Outlet } from 'react-router-dom';
+import appLogo from '../images/planet.png';
 
-const Navbar = () => (
-  <>
-    <nav className={styles.navbar}>
-      <div className={styles.nav}>
-        <img src={logo} className={styles.logo} alt="" />
-        <div className={styles.navItems}>
-          <Link className={styles.linkItem} to="/">
-            Rockets
-          </Link>
-          <Link className={styles.linkItem} to="/missions">
-            Missions
-          </Link>
-          <Link className={styles.linkItem} to="/profile">
-            My Profile
-          </Link>
+export default function Navbar() {
+  return (
+    <>
+      <nav className="header">
+        <div className="logo--header">
+          <img src={appLogo} alt="app logo" />
+          <h1>Space Travellers&apos; Hub</h1>
         </div>
-      </div>
-      <Outlet />
-    </nav>
-  </>
-);
-
-export default Navbar;
+        <ul className="nav--all">
+          <li><NavLink className="nav--item" exact to="/">Rockets </NavLink></li>
+          <li><NavLink className="nav--item" to="/missions">Missions </NavLink></li>
+          <li><NavLink className="nav--item" to="/profile">Profile </NavLink></li>
+        </ul>
+        <Outlet />
+      </nav>
+      <hr />
+    </>
+  );
+}
