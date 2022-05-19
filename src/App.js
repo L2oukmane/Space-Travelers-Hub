@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Mission from './components/Mission';
 import Rockets from './components/Rockets';
+import React, { Component }  from 'react';
 
 function App() {
   return (
