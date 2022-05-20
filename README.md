@@ -1,4 +1,4 @@
-# BOOKSTORE | MODULE-III
+# Space Travelers Hub | MODULE-III
 
 > Space-Travelers-Hub is simple application being built in our third module of our curriculum at microverse, where we build a web application for a company that provides commercial and scientific space travel services.
 
@@ -108,7 +108,7 @@ All source code files are licensed under the permissive zlib license
 
 - **Loukmane Oustani** - [github](https://github.com/L2oukmane), [linkedin](https://www.linkedin.com/in/loukmane-oustani-221668211/), [twitter](https://twitter.com/LoukmaneOustani)
 
-- **Evans Sitibekiso** - [github](https://github.com/evans22j)
+- **Evans Sitibekiso** - [github](https://github.com/evans22j), [linkedin](https://www.linkedin.com/in/evans-sitibekiso/)
 
 ## 📝 License
 
