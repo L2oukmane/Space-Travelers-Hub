@@ -1,67 +1,29 @@
-import axios from 'axios';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { bookRockets, cancelRocketBooking } from '../redux/rockets';
+/* eslint-disable react/prop-types */
+const Rocket = (props) => {
+  const { rocket } = props;
+  const dispatch = useDispatch();
 
-const GET_ROCKETS = 'GET_ROCKETS';
-const BOOK_ROCKET = 'BOOK_ROCKET';
-const CANCEL_ROCKET_BOOKING = 'CANCEL_ROCKET_BOOKING';
+  const handleClick = () => {
+    if (rocket.reserved && rocket.reserved === true) {
+      dispatch(cancelRocketBooking(rocket.id));
+    } else {
+      dispatch(bookRockets(rocket.id));
+    }
+  };
 
-const getRocketsFromApi = (success) => {
-  axios.get('https://api.spacexdata.com/v3/rockets')
-    .then((res) => {
-      success(res);
-    });
+  return (
+    <div className="rocket d-flex ">
+      <img className="rocket-image" src={rocket.flickr_images} alt={`${rocket.rocket_name}`} />
+      <div className="rocket-details d-col-flex">
+        <h2>{rocket.rocket_name}</h2>
+        <p>{rocket.description}</p>
+        <button type="button" onClick={handleClick}>Reserve Rocket</button>
+      </div>
+    </div>
+  );
 };
 
-const initialState = [];
-
-export const rocketsReducer = (state = initialState, action) => {
-  let rockets;
-  const rocketId = action.payload;
-  switch (action.type) {
-    case GET_ROCKETS:
-      rockets = action.payload.map((rocket) => ({
-        id: rocket.id,
-        rocket_name: rocket.rocket_name,
-        description: rocket.description,
-        flickr_images: rocket.flickr_images[0],
-      }));
-      return rockets;
-    case BOOK_ROCKET:
-      rockets = state.map((rocket) => (
-        rocket.id !== rocketId
-          ? rocket
-          : { ...rocket, reserved: true }
-      ));
-      return rockets;
-    case CANCEL_ROCKET_BOOKING:
-      rockets = state.map((rocket) => (
-        rocket.id !== rocketId
-          ? rocket
-          : { ...rocket, reserved: false }
-      ));
-      return rockets;
-    default: return state;
-  }
-};
-
-export const getRockets = () => (dispatch) => {
-  getRocketsFromApi((res) => {
-    dispatch({
-      type: GET_ROCKETS,
-      payload: res.data,
-    });
-  });
-};
-
-export const bookRockets = (id) => (dispatch) => {
-  dispatch({
-    type: BOOK_ROCKET,
-    payload: id,
-  });
-};
-
-export const cancelRocketBooking = (id) => (dispatch) => {
-  dispatch({
-    type: CANCEL_ROCKET_BOOKING,
-    payload: id,
-  });
-};
+export default Rocket;
