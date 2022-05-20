@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import './index.css';
 import Rockets from './pages/Rockets';
-import Profile from './pages/profile';
-import Missions from './pages/missions';
+import Profile from './pages/MyProfile';
+import Missions from './pages/Missions';
 
 export default function App() {
   return (
