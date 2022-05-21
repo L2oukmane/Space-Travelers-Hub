@@ -1,22 +1,22 @@
+import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import './index.css';
+import { Route, Routes } from 'react-router-dom';
+import MissionsList from './pages/MissionsList';
 import Rockets from './pages/Rockets';
-import Profile from './pages/MyProfile';
-import Missions from './pages/Missions';
 
-export default function App() {
+function App() {
   return (
-
-    <Router>
-      <Navbar />
+    <div className="App">
       <Routes>
-        <Route path="/" exact element={<Rockets />} />
-        <Route path="/missions" element={<Missions />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/missions" element={<MissionsList />} />
+        <Route
+          exact="true"
+          path="/"
+          element={<Rockets />}
+        />
       </Routes>
-
-    </Router>
+    </div>
   );
 }
+
+export default App;
