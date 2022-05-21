@@ -1,4 +1,14 @@
-eserved,
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import styles from './Mission.module.css';
+import { joinMission, leaveMission } from '../redux/missions';
+
+const Mission = (props) => {
+  const dispatch = useDispatch();
+  const { mission } = props;
+  const {
+    id, name, description, reserved,
   } = mission;
   const handleMissionClick = () => {
     if (mission.reserved === true) {
