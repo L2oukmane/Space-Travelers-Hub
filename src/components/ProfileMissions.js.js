@@ -1,24 +1,24 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { cancelRocketBooking } from '../redux/rockets';
+import { leaveMission } from '../redux/missions';
 
-const RocketProfile = (props) => {
+const ProfileMissions = (props) => {
   const { name, id } = props;
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(cancelRocketBooking(id));
+    dispatch(leaveMission(id));
   };
   return (
     <div className="profile-mission">
       <span>{name}</span>
-      <button type="button" onClick={handleClick}>Cancel Reservation</button>
+      <button type="button" onClick={handleClick}>Leave Mission</button>
     </div>
   );
 };
 
-RocketProfile.propTypes = {
+ProfileMissions.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
 
-export default RocketProfile;
+export default ProfileMissions;
