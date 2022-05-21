@@ -1,5 +1,3 @@
-
-  
 import axios from 'axios';
 
 const GET_MISSIONS = 'space-travelers-hub/missions/GET_MISSIONS';
